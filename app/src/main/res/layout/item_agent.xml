@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
+            android:id="@+id/imagecdagent"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_marginLeft="9dp"
@@ -37,6 +38,7 @@
                 android:text="Nom d'Agent :" />
 
             <TextView
+                android:id="@+id/mission"
                 android:textSize="18dp"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"

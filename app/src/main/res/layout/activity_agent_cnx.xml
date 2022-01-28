@@ -20,7 +20,7 @@ tools:context=".MainActivity
             android:adjustViewBounds="true"
             android:maxWidth="680dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/GoSecuri" />
+            android:src="@drawable/gosecuri" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
