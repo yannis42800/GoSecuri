@@ -33,8 +33,10 @@ class myAdapter(private val agentList: ArrayList<Agent>) : RecyclerView.Adapter<
         val agents : Agent = agentList[position]
         holder.name.setText(agents.getNom() + "  " + agents.getPrenom())
         holder.mission.setText(agents.getMission())
-        Picasso.get().load(
-            "https://raw.githubusercontent.com/yannis42800/img/main/images/" + agents.getNom().toString() + ".jpg").into(holder.img)
+        Picasso.get().load(agents.getImg()).into(holder.img)
+        holder.itemView.setOnClickListener(View.OnClickListener {
+            passData(agents.nom.toString(),agents.prenom.toString(),agents.img.toString(),agents.mission.toString(),agents.equipements)
+        })
 
 
     }
@@ -52,8 +54,34 @@ class myAdapter(private val agentList: ArrayList<Agent>) : RecyclerView.Adapter<
 
 
 
+    }
 
 
+
+    private fun passData(
+        nom: String,
+        prenom:String,
+        img:String,
+        mission:String,
+        equipements:ArrayList<equipements>
+
+
+        ) {
+        val intent = Intent(context, agentDetail::class.java)
+        intent.putExtra("nom",nom)
+        intent.putExtra("prenom",prenom)
+        intent.putExtra("img",img)
+        intent.putExtra("mission",mission)
+        for(elem in equipements!!) {
+            println(elem)
+
+            intent.putExtra(elem.toString(),elem.toString())
+        }
+
+
+
+
+        context!!.startActivity(intent)
     }
 
 

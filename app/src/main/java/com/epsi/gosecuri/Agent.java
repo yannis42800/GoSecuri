@@ -8,6 +8,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Agent {
+    private String img;
     private String nom;
     private String prenom;
     private String mission;
@@ -15,12 +16,21 @@ public class Agent {
     private ArrayList<equipements> equipements;
 
     public Agent(){}
-    public  Agent(String nom, String prenom, String mission, String mdp, ArrayList<equipements> equipements){
+    public  Agent(String img,String nom, String prenom, String mission, String mdp, ArrayList<equipements> equipements){
+        this.img = img;
         this.nom = nom;
         this.prenom = prenom;
         this.mission = mission;
         this.mdp = mdp;
         this.equipements = equipements;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public String getNom() {
@@ -63,8 +73,8 @@ public class Agent {
         this.equipements = equipements;
     }
 
-    public static Agent fromFile (BufferedReader buffer) {
-
+    public static Agent fromFile (BufferedReader buffer,String id) {
+        String img;
         String nom;
         String prenom;
         String job;
@@ -72,6 +82,7 @@ public class Agent {
         ArrayList<equipements> packetage = new ArrayList<equipements>();
 
         try {
+            img = "https://raw.githubusercontent.com/yannis42800/img/main/images/"+id+".jpg";
             nom = buffer.readLine();
             prenom = buffer.readLine();
             job = buffer.readLine();
@@ -88,7 +99,7 @@ public class Agent {
                 packetage.add(com.epsi.gosecuri.equipements.valueOf(res));
             }
 
-            return new Agent(nom,prenom,job,mdp,packetage );
+            return new Agent(img,nom,prenom,job,mdp,packetage);
 
         } catch (Exception e) {
             System.out.println(e);

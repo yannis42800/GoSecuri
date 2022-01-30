@@ -128,7 +128,6 @@ class MainActivity : AppCompatActivity() {
     }
     private fun EventChangeListenner() {
         try {
-            println("Début try Connexion URL")
             val urlChantier = URL("https://raw.githubusercontent.com/yannis42800/img/main/staff.txt")
             val yc = urlChantier.openConnection()
             val In = BufferedReader(
@@ -139,10 +138,30 @@ class MainActivity : AppCompatActivity() {
 
             var inputLine: String?
             while (In.readLine().also { inputLine = it } != null) {
+
                 println(inputLine)
-                val newAgent = Agent(inputLine.toString(),"","","",null)
-                arrayList.add(newAgent)
-                println(arrayList)
+                try{
+                    val urlAgentDetail = URL("https://raw.githubusercontent.com/yannis42800/img/main/agents/"+inputLine.toString()+".txt")
+                    println(urlAgentDetail)
+                    val ycdetail = urlAgentDetail.openConnection()
+                    val agentDetail = BufferedReader(
+                        InputStreamReader(
+                            ycdetail.getInputStream()
+                        )
+                    )
+                    val newAgent = Agent.fromFile(agentDetail,inputLine.toString())
+                    println(newAgent)
+                    arrayList.add(newAgent)
+                    agentDetail.close()
+
+                } catch (e: MalformedURLException) {
+                    e.printStackTrace()
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+
+
+
             }
             In.close()
         } catch (e: MalformedURLException) {

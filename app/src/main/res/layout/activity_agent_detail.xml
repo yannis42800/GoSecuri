@@ -13,7 +13,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="10dp"
         android:textSize="15dp"
         android:background="@drawable/border_name"
         android:fontFamily="@font/robotolight"
@@ -25,30 +25,34 @@
 
     <ImageView
         android:id="@+id/imgCart"
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_below="@+id/name"
-        android:layout_alignStart="@+id/name"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/img" />
+        android:layout_marginTop="15dp"
+        android:background="@drawable/img"
+        android:scaleType="center"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+
+        />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="320dp"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
         android:layout_below="@+id/imgCart"
-        android:layout_alignStart="@+id/imgCart"
         android:layout_alignEnd="@+id/imgCart"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="50dp"
-        android:background="@drawable/card">
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/card"
+        android:layout_marginStart="32dp"
+
+        >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/title"
             android:text="Matériel en sa possession"
             android:textAlignment="center"
@@ -57,20 +61,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:text="Mousqueton"
-                    android:textAlignment="textEnd"/>
+                    android:textAlignment="textEnd" />
+
                 <CheckBox
+                    android:id="@+id/mousqueton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -78,15 +84,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:text="Gant d'intervention"
-                    android:textAlignment="textEnd"/>
+                    android:textAlignment="textEnd" />
+
                 <CheckBox
+                    android:id="@+id/gants"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -94,47 +102,36 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:text="Ceinture de sécurité tactique"
-                    android:textAlignment="textEnd"/>
+                    android:text="Talkies walkies"
+                    android:textAlignment="textEnd" />
+
                 <CheckBox
+                    android:id="@+id/talky"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:text="Détecteur de métaux"
-                    android:textAlignment="textEnd"/>
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:text="Brassard de sécurité"
-                    android:textAlignment="textEnd"/>
+                    android:textAlignment="textEnd" />
+
                 <CheckBox
+                    android:id="@+id/brassard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -142,15 +139,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:text="Lampe torche"
-                    android:textAlignment="textEnd"/>
+                    android:textAlignment="textEnd" />
+
                 <CheckBox
+                    android:id="@+id/lampe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -158,20 +157,93 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:text="Gilet pare balle"
-                    android:textAlignment="textEnd"/>
+                    android:text="Kit oreillette "
+                    android:textAlignment="textEnd" />
+
                 <CheckBox
+                    android:id="@+id/kit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:text="Menottes"
+                    android:textAlignment="textEnd" />
+
+                <CheckBox
+                    android:id="@+id/menottes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:text="Bandeau agent cynophile"
+                    android:textAlignment="textEnd" />
+
+                <CheckBox
+                    android:id="@+id/cyno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:text="Tasers"
+                    android:textAlignment="textEnd" />
+
+                <CheckBox
+                    android:id="@+id/taser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:text="Bombes lacrymogènes"
+                    android:textAlignment="textEnd" />
+
+                <CheckBox
+                    android:id="@+id/lacrymo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
         </LinearLayout>
 
 
