@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Agent {
     private String img;
@@ -73,16 +74,17 @@ public class Agent {
         this.equipements = equipements;
     }
 
-    public static Agent fromFile (BufferedReader buffer,String id) {
+    public static Agent fromFile (BufferedReader buffer) {
         String img;
         String nom;
         String prenom;
         String job;
         String mdp;
         ArrayList<equipements> packetage = new ArrayList<equipements>();
+        String lienSite = "https://raw.githubusercontent.com/yannis42800/img/main/images/";
 
         try {
-            img = "https://raw.githubusercontent.com/yannis42800/img/main/images/"+id+".jpg";
+            //img = lienSite + id + ".jpg";
             nom = buffer.readLine();
             prenom = buffer.readLine();
             job = buffer.readLine();
@@ -99,7 +101,17 @@ public class Agent {
                 packetage.add(com.epsi.gosecuri.equipements.valueOf(res));
             }
 
-            return new Agent(img,nom,prenom,job,mdp,packetage);
+            Agent agent = new Agent();
+
+            agent.nom = nom;
+            agent.prenom = prenom;
+            agent.mission = job;
+            agent.mdp = mdp;
+            agent.equipements = packetage;
+            agent.img = lienSite + agent.getID() + ".jpg";
+
+            System.out.println(lienSite + agent.getID() + ".jpg");
+            return agent;
 
         } catch (Exception e) {
             System.out.println(e);
@@ -107,11 +119,15 @@ public class Agent {
         }
     }
 
+
+
     public void toFile (String filePath){
         try {
             FileWriter writer = new FileWriter(new File(filePath));
             BufferedWriter buffer = new BufferedWriter(writer);
             String content = nom + "\n" + prenom + "\n" + mission + "\n" + mdp + "\n\n";
+            System.out.println(content);
+
             for (equipements elem : equipements) {
                 content += elem.name() + "\n";
             }
@@ -125,4 +141,11 @@ public class Agent {
             System.out.println(e);
         }
     }
+
+
+    public String getID()
+    {
+        return (prenom.charAt(0) + nom).toLowerCase(Locale.ROOT);
+    }
+
 }

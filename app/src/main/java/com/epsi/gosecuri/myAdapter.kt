@@ -2,15 +2,12 @@ package com.epsi.gosecuri
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
 import java.util.ArrayList;
 
@@ -35,7 +32,7 @@ class myAdapter(private val agentList: ArrayList<Agent>) : RecyclerView.Adapter<
         holder.mission.setText(agents.getMission())
         Picasso.get().load(agents.getImg()).into(holder.img)
         holder.itemView.setOnClickListener(View.OnClickListener {
-            passData(agents.nom.toString(),agents.prenom.toString(),agents.img.toString(),agents.mission.toString(),agents.equipements)
+            passData(agents.id,agents.nom.toString(),agents.prenom.toString(),agents.img.toString(),agents.mission.toString(),agents.equipements)
         })
 
 
@@ -59,6 +56,7 @@ class myAdapter(private val agentList: ArrayList<Agent>) : RecyclerView.Adapter<
 
 
     private fun passData(
+        id: String,
         nom: String,
         prenom:String,
         img:String,
@@ -68,6 +66,7 @@ class myAdapter(private val agentList: ArrayList<Agent>) : RecyclerView.Adapter<
 
         ) {
         val intent = Intent(context, agentDetail::class.java)
+        intent.putExtra("id",id)
         intent.putExtra("nom",nom)
         intent.putExtra("prenom",prenom)
         intent.putExtra("img",img)

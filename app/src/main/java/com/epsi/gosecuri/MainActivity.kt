@@ -149,7 +149,7 @@ class MainActivity : AppCompatActivity() {
                             ycdetail.getInputStream()
                         )
                     )
-                    val newAgent = Agent.fromFile(agentDetail,inputLine.toString())
+                    val newAgent = Agent.fromFile(agentDetail)
                     println(newAgent)
                     arrayList.add(newAgent)
                     agentDetail.close()
