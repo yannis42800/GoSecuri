@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Daalouch/AndroidStudioProjects/GoSecuri/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.17407407407407408" />
+        <entry key="..\:/Users/Daalouch/AndroidStudioProjects/GoSecuri/app/src/main/res/layout/activity_agent_cnx.xml" value="0.1597222222222222" />
+        <entry key="..\:/Users/Daalouch/AndroidStudioProjects/GoSecuri/app/src/main/res/layout/activity_agent_detail.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/border_name.xml" value="0.2523076923076923" />
         <entry key="app/src/main/res/drawable/border_textview.xml" value="0.2523076923076923" />
         <entry key="app/src/main/res/drawable/card.xml" value="0.2523076923076923" />

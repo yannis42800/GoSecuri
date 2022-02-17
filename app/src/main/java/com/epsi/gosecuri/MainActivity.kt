@@ -171,6 +171,5 @@ class MainActivity : AppCompatActivity() {
         }
         myAdapter.notifyDataSetChanged()
 
-
     }
 }

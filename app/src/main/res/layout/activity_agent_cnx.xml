@@ -3,8 +3,9 @@
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
-android:layout_height="match_parent">s
-tools:context=".MainActivity
+android:layout_height="match_parent"
+    tools:context=".Connexion"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +21,7 @@ tools:context=".MainActivity
             android:adjustViewBounds="true"
             android:maxWidth="680dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/gosecuri" />
+            android:src="@drawable/gosecuri2" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -28,12 +29,12 @@ tools:context=".MainActivity
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email"
+            <EditText
+                android:id="@+id/identifiant"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:hint="Email" />
+                android:hint="Identifiant" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
