@@ -3,16 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Daalouch/AndroidStudioProjects/GoSecuri/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.17407407407407408" />
-        <entry key="..\:/Users/Daalouch/AndroidStudioProjects/GoSecuri/app/src/main/res/layout/activity_agent_cnx.xml" value="0.1597222222222222" />
-        <entry key="..\:/Users/Daalouch/AndroidStudioProjects/GoSecuri/app/src/main/res/layout/activity_agent_detail.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/border_name.xml" value="0.2523076923076923" />
         <entry key="app/src/main/res/drawable/border_textview.xml" value="0.2523076923076923" />
         <entry key="app/src/main/res/drawable/card.xml" value="0.2523076923076923" />
         <entry key="app/src/main/res/drawable/img.xml" value="0.2523076923076923" />
         <entry key="app/src/main/res/font/robotolight.xml" value="0.2537037037037037" />
         <entry key="app/src/main/res/font/title.xml" value="0.2537037037037037" />
-        <entry key="app/src/main/res/layout/activity_agent_cnx.xml" value="0.11820652173913043" />
+        <entry key="app/src/main/res/layout/activity_agent_cnx.xml" value="0.3966189856957087" />
         <entry key="app/src/main/res/layout/activity_agent_detail.xml" value="0.34726679164018925" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/item_agent.xml" value="0.24010416666666667" />

@@ -17,6 +17,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context
 import android.content.Intent;
+import android.os.Build
 import android.os.Bundle;
 import android.os.Looper;
 import android.view.View;
@@ -28,72 +29,110 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
+import org.jetbrains.anko.toast
 
 
 class Connexion : AppCompatActivity() {
         lateinit var title: TextView
         val client = OkHttpClient()
-        private lateinit var recyclerView: RecyclerView
-        private lateinit var arrayList: ArrayList<Agent>
-        private lateinit var myAdapter: myAdapter
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_agent_cnx)
-        val mdp= findViewById<EditText>(R.id.password)
-        val password = mdp.getText().toString()
-        val id= findViewById<EditText>(R.id.identifiant)
-        val identifiant = id.getText().toString()
+        if (Build.VERSION.SDK_INT > 9) {
+            val policy = ThreadPolicy.Builder().permitAll().build()
+            StrictMode.setThreadPolicy(policy)
+        }
+
         val Okbutton = findViewById<TextView>(R.id.login_button)
 
 
+
+
         Okbutton.setOnClickListener(View.OnClickListener {
+
+            val mdp= findViewById<EditText>(R.id.password)
+            val id= findViewById<EditText>(R.id.identifiant)
+            val identifiant = id.getText().toString()
+            val password = mdp.getText().toString()
+            var verif = 0
             println(identifiant)
-            println(password)
-            processEmailAndPassword(identifiant,password)
+            try {
+                val urlIdentifiant = URL("https://raw.githubusercontent.com/yannis42800/img/main/staff.txt")
+                val yc = urlIdentifiant.openConnection()
+                val In = BufferedReader(
+                    InputStreamReader(
+                        yc.getInputStream()
+                    )
+                )
+
+                var inputLine: String?
+                while (In.readLine().also { inputLine = it } != null) {
+
+                    println(inputLine)
+                    if(inputLine == identifiant ){
+                        verif = 1
+                    }
+
+
+
+
+
+
+                }
+                if(verif == 0){
+                    toast("Votre Identifiant n'est pas correcte")
+                }else{
+                    try {
+                        val urlMDP = URL("https://raw.githubusercontent.com/yannis42800/img/main/agents/"+identifiant+".txt")
+                        val ycMDP = urlMDP.openConnection()
+                        val InMDP = BufferedReader(
+                            InputStreamReader(
+                                ycMDP.getInputStream()
+                            )
+                        )
+                        var inputLineMDP: String?
+                        var lines = 0
+                        while (InMDP.readLine().also { inputLineMDP = it } != null) {
+                            if(lines == 3){
+
+                                if (inputLineMDP.toString() == password.toString()){
+                                    val intent = Intent(this, MainActivity::class.java)
+                                    this!!.startActivity(intent)
+
+
+                                }else{
+
+
+                                    toast(inputLineMDP.toString())
+                                }
+
+                            }
+                            lines = lines+1
+                        }
+                            InMDP.close()
+                    } catch (e: MalformedURLException) {
+                        e.printStackTrace()
+                    } catch (e: IOException) {
+                        e.printStackTrace()
+                    }
+                }
+                print("verif")
+                print(verif)
+                In.close()
+            } catch (e: MalformedURLException) {
+                e.printStackTrace()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
 
 
         })
 
     }
 
-
-      fun processEmailAndPassword(identifiant : String, password : String) {
-        var ErrorMessage = ""
-          println(identifiant)
-        try {
-            val urlAgentDetail =
-                URL("https://raw.githubusercontent.com/yannis42800/img/main/agents/" + identifiant + ".txt")
-            println(urlAgentDetail)
-            val ycdetail = urlAgentDetail.openConnection()
-            val agentDetail = BufferedReader(
-                InputStreamReader(
-                    ycdetail.getInputStream()
-                )
-            )
-
-
-
-
-
-            val newAgent = Agent.fromFile(agentDetail)
-            println(newAgent)
-            agentDetail.close()
-
-
-        } catch (e: MalformedURLException) {
-        Toast.makeText(this,"Please enter Username and Password", Toast.LENGTH_SHORT).show()
-        } catch (e: IOException) {
-            Toast.makeText(this,"Please enter Username and Password", Toast.LENGTH_SHORT).show()
-        }
-
-
-         // je suppose que ceux sont tes 2 champs de mot de passe
-        // je suppose que ceux sont tes 2 champs de mot de passe
-
-        }
     }
 
 
