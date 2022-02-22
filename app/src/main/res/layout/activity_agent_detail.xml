@@ -25,14 +25,16 @@
 
     <ImageView
         android:id="@+id/imgCart"
-        android:layout_width="match_parent"
+        android:layout_width="305dp"
         android:layout_height="150dp"
         android:layout_below="@+id/name"
         android:layout_marginTop="15dp"
-        android:background="@drawable/img"
         android:scaleType="center"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
+        android:padding="5dp"
+        android:radius="25dp"
+
 
         />
 

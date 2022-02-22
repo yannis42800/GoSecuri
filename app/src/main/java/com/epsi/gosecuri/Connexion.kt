@@ -106,7 +106,7 @@ class Connexion : AppCompatActivity() {
                                 }else{
 
 
-                                    toast(inputLineMDP.toString())
+                                    toast("Votre mot de passe est incorrect")
                                 }
 
                             }

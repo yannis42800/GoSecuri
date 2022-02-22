@@ -42,7 +42,6 @@ import java.net.*
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var title:TextView
     val client = OkHttpClient()
     private lateinit var recyclerView: RecyclerView
     private lateinit var arrayList: ArrayList<Agent>
@@ -63,7 +62,6 @@ class MainActivity : AppCompatActivity() {
             StrictMode.setThreadPolicy(policy)
         }
 
-        title = find(R.id.title)
         EventChangeListenner()
 
 
